@@ -1,13 +1,21 @@
-# this is an implementation of the 'series' functionality using a module.
+#Yevgeny Khessin
+#A39652176
+#HW1
+# an implementation of Eratosthenes' Sieve using a a Python module
 
-n = 0
+listprimes = [2]
 
-def add_one():
-    global n
-    n = n + 1
-    return n
+def primecheck(primes, n): #function defition of checking if number is prime
+    for i in primes:   #for all numbers in primes list 
+        if n % i == 0:  #if modulus is 0 
+            return False   #return false
+    return True  #if not, return true
 
-# additional questions to address:
-#  - what does 'global' do, above?
-#  - what naming limitations are there on series.py? Could we name it
-#        series_mod.py or series-mod.py, and still have it work as a module?
+def next(): #next definition 
+    counter = listprimes[-1] + 1 #
+    while 1:
+        if primecheck(listprimes, counter):
+            listprimes.append(counter)
+            return counter
+
+        counter += 1
